@@ -1,29 +1,9 @@
 --------------------------------------------------------------------------------
--- Company: 
--- Engineer:
+-- Company: UTP
+-- Engineer: Vanessa Penagos & Daniela Zuluaga
 --
--- Create Date:   17:11:52 04/06/2016
--- Design Name:   
--- Module Name:   F:/ProcesadorUno/aqr_UC/UControl_TB.vhd
--- Project Name:  aqr_UC
--- Target Device:  
--- Tool versions:  
--- Description:   
--- 
--- VHDL Test Bench Created by ISE for module: UControl
--- 
--- Dependencies:
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
---
--- Notes: 
--- This testbench has been automatically generated using types std_logic and
--- std_logic_vector for the ports of the unit under test.  Xilinx recommends
--- that these types always be used for the top-level I/O of a design in order
--- to guarantee that the testbench will bind correctly to the post-implementation 
--- simulation model.
+-- Create Date:   17:08:57 04/01/2016
+-- Module Name:   Sumador
 --------------------------------------------------------------------------------
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
