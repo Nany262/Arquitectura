@@ -1,0 +1,2 @@
+vhdl work "PCounter.vhd"
+vhdl work "tb_PCounter.vhd"

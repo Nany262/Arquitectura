@@ -1,0 +1,6 @@
+V3 3
+FL E:/ProcesadorUno/arq_ALU/ALU.vhd 2016/04/11.15:21:08 P.58f
+EN work/ALU 1460406074 FL E:/ProcesadorUno/arq_ALU/ALU.vhd PB ieee/std_logic_1164 1364358218 \
+      PB ieee/STD_LOGIC_UNSIGNED 1364358221
+AR work/ALU/Behavioral 1460406075 \
+      FL E:/ProcesadorUno/arq_ALU/ALU.vhd EN work/ALU 1460406074

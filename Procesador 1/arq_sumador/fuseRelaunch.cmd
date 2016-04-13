@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "secureip" -o "F:/ProcesadorUno/arq_sumador/tb_Sumador_isim_beh.exe" -prj "F:/ProcesadorUno/arq_sumador/tb_Sumador_beh.prj" "work.tb_Sumador" 
