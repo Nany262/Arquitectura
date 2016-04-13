@@ -1,3 +1,10 @@
+----------------------------------------------------------------------------------
+-- Company: UTP
+-- Engineer: Vanessa Penagos & Daniela Zuluaga
+-- 
+-- Create Date:    17:05:24 04/01/2016 
+-- Module Name:    IM - Behavioral 
+----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;

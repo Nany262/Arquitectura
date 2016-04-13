@@ -1,30 +1,10 @@
---------------------------------------------------------------------------------
--- Company: 
--- Engineer:
---
--- Create Date:   15:41:43 10/13/2015
--- Design Name:   
--- Module Name:   C:/Users/William Salazar/Google Drive/UTP/Sexto semestre/Arquitectura de computadores/Monociclo2.3/tbInstructionMemory.vhd
--- Project Name:  Monociclo2.3
--- Target Device:  
--- Tool versions:  
--- Description:   
+----------------------------------------------------------------------------------
+-- Company: UTP
+-- Engineer: Vanessa Penagos & Daniela Zuluaga
 -- 
--- VHDL Test Bench Created by ISE for module: instructionMemory
--- 
--- Dependencies:
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
---
--- Notes: 
--- This testbench has been automatically generated using types std_logic and
--- std_logic_vector for the ports of the unit under test.  Xilinx recommends
--- that these types always be used for the top-level I/O of a design in order
--- to guarantee that the testbench will bind correctly to the post-implementation 
--- simulation model.
---------------------------------------------------------------------------------
+-- Create Date:    17:05:24 04/01/2016 
+-- Module Name:    IM - Behavioral 
+----------------------------------------------------------------------------------
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
  

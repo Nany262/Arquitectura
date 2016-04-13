@@ -3,7 +3,7 @@
 -- Engineer: Vanessa Penagos & Daniela Zuluaga
 -- 
 -- Create Date:    17:05:24 04/01/2016 
--- Module Name:    Sumador - Behavioral 
+-- Module Name:    ALU - Behavioral 
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
