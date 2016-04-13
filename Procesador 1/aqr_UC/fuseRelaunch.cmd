@@ -1,1 +1,0 @@
--intstyle "ise" -incremental -lib "secureip" -o "E:/ProcesadorUno/aqr_UC/UControl_TB_isim_beh.exe" -prj "E:/ProcesadorUno/aqr_UC/UControl_TB_beh.prj" "work.UControl_TB" 

@@ -1,1 +1,0 @@
--intstyle "ise" -incremental -lib "secureip" -o "C:/Users/utp.CRIE/Desktop/ProcesadorUno/arq_PCounter/tb_PCounter_isim_beh.exe" -prj "C:/Users/utp.CRIE/Desktop/ProcesadorUno/arq_PCounter/tb_PCounter_beh.prj" "work.tb_PCounter" 
