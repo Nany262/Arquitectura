@@ -1,0 +1,1 @@
+vhdtdtfi -prj Procesador_Monociclo1 -o "E:/Procesador 1/Procesador_Monociclo1/PCounter.vhi" -module PCounter -template C:/Xilinx/14.5/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work ../arq_PCounter/PCounter.vhd 

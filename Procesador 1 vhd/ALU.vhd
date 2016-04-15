@@ -11,9 +11,9 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 entity ALU is
     Port ( ALU_Op : in  STD_LOGIC_VECTOR (5 downto 0);
-           CRS1 : in  STD_LOGIC_VECTOR (4 downto 0);
-           CRS2 : in  STD_LOGIC_VECTOR (4 downto 0);
-           ALU_Out : out  STD_LOGIC_VECTOR (4 downto 0));
+           CRS1 : in  STD_LOGIC_VECTOR (31 downto 0);
+           CRS2 : in  STD_LOGIC_VECTOR (31 downto 0);
+           ALU_Out : out  STD_LOGIC_VECTOR (31 downto 0));
 end ALU;
 
 architecture Behavioral of ALU is
