@@ -1,3 +1,0 @@
-vhdtdtfi -lib work ../../RegisterFile.vhd -prj Procesador_Monociclo1 -o RegisterFile.spl -module RegisterFile -template C:/Xilinx/14.5/ISE_DS/ISE//data/splfile.tft -deleteonerror 
-spl2sym -intstyle ise -family aartix7 RegisterFile.spl {E:/Procesador 1/Procesador_Monociclo1/RegisterFile.sym} 
-vhdtdtfi -prj Procesador_Monociclo1 -o "E:/Procesador 1/Procesador_Monociclo1/RegisterFile.vhi" -module RegisterFile -template C:/Xilinx/14.5/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work ../../RegisterFile.vhd 
