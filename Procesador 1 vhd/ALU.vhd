@@ -3,7 +3,7 @@
 -- Engineer: Vanessa Penagos & Daniela Zuluaga
 -- 
 -- Create Date:    17:05:24 04/01/2016 
--- Module Name:    ALU - Behavioral 
+-- Module Name:    ALU
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -38,7 +38,7 @@ begin
 			ALU_Out <= not(CRS1 xor CRS2);
 		when "000101" =>  -- AndN
 			ALU_Out <= not(CRS1 and CRS2);
-		when others => ALU_Out<="11111";
+		when others => ALU_Out<="11111111111111111111111111111111";
 	end case;
 end process;
 
