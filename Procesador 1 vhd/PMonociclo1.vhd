@@ -56,9 +56,9 @@ end component;
 
 component ALU is
     Port ( ALU_Op : in  STD_LOGIC_VECTOR (5 downto 0);
-           CRS1 : in  STD_LOGIC_VECTOR (4 downto 0);
-           CRS2 : in  STD_LOGIC_VECTOR (4 downto 0);
-           ALU_Out : out  STD_LOGIC_VECTOR (4 downto 0));
+           CRS1 : in  STD_LOGIC_VECTOR (31 downto 0);
+           CRS2 : in  STD_LOGIC_VECTOR (31 downto 0);
+           ALU_Out : out  STD_LOGIC_VECTOR (31 downto 0));
 end component;
 
 signal sum_to_nPC: std_logic_vector(31 downto 0);
@@ -87,7 +87,7 @@ Inst_PCounter: PCounter PORT MAP(
 	);
 
 Inst_Sumador: Sumador PORT MAP(
-		Constante => "00000000000000000000000000000100",
+		Constante => "00000000000000000000000000000001",
 		Data_In => nPC_to_PCandSum,
 		Data_Out => sum_to_nPC
 	);
@@ -119,8 +119,10 @@ Inst_ALU: ALU PORT MAP(
 		ALU_Op => UC_to_ALU,
 		CRS1 => RF_to_ALU1,
 		CRS2 => RF_to_ALU2,
-		ALU_Out => RESULT 
+		ALU_Out => ALU_to_RF 
 	);
+
+RESULT<= ALU_to_RF;
   
 end Behavioral;
 
