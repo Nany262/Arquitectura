@@ -1,0 +1,26 @@
+
+PRUEBA PRIMER PROCESADOR
+
+Iniciar el RF con:
+%lo <-- 17 --> a
+%l1 <-- -9 --> b
+%l2 <-- 14 --> c
+
+int main(){
+int a,b,c,d;
+d=(a+b)-c;
+return d;
+}
+
+Resultado =-6
+
+PRUEBA SEGUNDO PROCESADOR
+
+int main(){
+int a=-45, b=-8,c=19,d;
+d=a&b;
+return d+c
+}
+
+Resultado = -29
+
