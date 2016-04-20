@@ -24,3 +24,12 @@ return d+c
 
 Resultado = -29
 
+PRUEBA TERCER PROCESADOR
+		  n z v c
+mov 5,%lo        |0|0|0|0|
+mov -8,%l1	 |0|0|0|0|
+mov 4,%l2	 |0|0|0|0|
+adcc %l0,%l1,%l3 |1|0|0|0|
+addx %l3,2,%l4   |1|0|0|0|
+cmp %l2,4        |0|1|0|0|
+add %g0,4,%l3    |0|1|0|0|
