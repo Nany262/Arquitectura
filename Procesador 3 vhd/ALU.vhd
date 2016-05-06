@@ -45,7 +45,7 @@ begin
 		when "000001" =>  --And
 			ALU_Out <= CRS1 and CRS2;
 		when "000101" =>  -- AndN
-			ALU_Out <= not(CRS1 and CRS2);			
+			ALU_Out <= CRS1 and not (CRS2);			
 		when "010001" =>  --Andcc
 			ALU_Out <= (CRS1 and CRS2);		
 		when "010101" =>  --AndNcc

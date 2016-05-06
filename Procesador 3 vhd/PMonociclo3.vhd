@@ -3,7 +3,7 @@
 -- Engineer: Vanessa Penagos & Daniela Zuluaga
 --
 -- Create Date:   17:08:57 04/01/2016
--- Module Name:   Procesador_Monociclo2
+-- Module Name:   Procesador_Monociclo
 --------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
