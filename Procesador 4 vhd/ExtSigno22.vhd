@@ -18,7 +18,7 @@ architecture Behavioral of ExtSigno is
 begin
 process(Dato22)
 begin
-	if(Dato13(21) = '1') then 
+	if(Dato22(21) = '1') then 
 		Dato32(21 downto 0) <= Dato22;
 		Dato32(31 downto 22) <= (others=>'1');
 		
