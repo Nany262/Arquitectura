@@ -8,12 +8,12 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 
-entity ExtSigno is
+entity ExtSigno13 is
     Port ( Dato13 : in  STD_LOGIC_VECTOR (12 downto 0);
            Dato32 : out  STD_LOGIC_VECTOR (31 downto 0));
 end ExtSigno;
 
-architecture Behavioral of ExtSigno is
+architecture Behavioral of ExtSigno13 is
 
 begin
 process(Dato13)

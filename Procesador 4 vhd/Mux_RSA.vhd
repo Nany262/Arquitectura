@@ -11,14 +11,14 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 
-entity Mux is
+entity Mux_RSA is
     Port ( Crs32 : in  STD_LOGIC_VECTOR (31 downto 0);
            imm32 : in  STD_LOGIC_VECTOR (31 downto 0);
            i : in  STD_LOGIC;
            Data_Out : out  STD_LOGIC_VECTOR (31 downto 0));
 end Mux;
 
-architecture Behavioral of Mux is
+architecture Behavioral of Mux_RSA is
 
 begin
 	
