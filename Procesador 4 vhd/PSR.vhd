@@ -6,6 +6,7 @@ entity PSR is
            Reset : in  STD_LOGIC;
 			  ncwp : in  STD_LOGIC;
            nzvc : in  STD_LOGIC_VECTOR (3 downto 0);
+           icc: out  STD_LOGIC_VECTOR (3 downto 0);
 			  cwp : out  STD_LOGIC;
            Carry : out  STD_LOGIC);
 			  
@@ -24,7 +25,9 @@ begin
 		else 
 			Carry <= '0';
 			cwp <= ncwp;
+			
 		end if;
+		icc<=nzvc;
 	end if;
 end process;
 end Behavioral;

@@ -11,10 +11,10 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity Mux_WR is
-    Port ( Rds : in  STD_LOGIC_VECTOR (6 downto 0);
-           RegO7 : in  STD_LOGIC_VECTOR (6 downto 0);
+    Port ( Rds : in  STD_LOGIC_VECTOR (5 downto 0);
+           RegO7 : in  STD_LOGIC_VECTOR (5 downto 0);
            rfDest : in  STD_LOGIC;
-           nRds : out  STD_LOGIC_VECTOR (6 downto 0));
+           nRds : out  STD_LOGIC_VECTOR (5 downto 0));
 end Mux_WR;
 
 architecture Behavioral of Mux_WR is
