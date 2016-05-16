@@ -11,7 +11,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity ExtSigno13 is
     Port ( Dato13 : in  STD_LOGIC_VECTOR (12 downto 0);
            Dato32 : out  STD_LOGIC_VECTOR (31 downto 0));
-end ExtSigno;
+end ExtSigno13;
 
 architecture Behavioral of ExtSigno13 is
 
