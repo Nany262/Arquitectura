@@ -49,266 +49,267 @@ if(OP = "00") then -- Branches Nop & Sethi
 			rfDest <= '0'; -- no se escribe
 			wrEnMem <= '0'; 
 			ALUOP <= "111111"; -- no debe hacer ninguna operacion aritmetica
-			end if;
-else
-		if(OP2 = "010")then -- Branch
-			case cond is
-				when "1000" => -- Branch Always
-					pcSource <= "10"; -- Siempre se salta a PC + (4 x seu(disp22))
-					wrEnRF <= '0'; 
-					rfSource <= "00"; -- No se permite escritura en el Register File
-					rfDest <= '0'; --No se permitira escritura en el Register File
-					wrEnMem <= '0'; --data memory
-					ALUOP <= "111111";
-					
-				when "1001" => -- Branch on Not Equal  
-					if(not(icc(2)) = '1') then -- not Z
+			
+		else
+			if(OP2 = "010")then -- Branch
+				case cond is
+					when "1000" => -- Branch Always
 						pcSource <= "10"; -- Siempre se salta a PC + (4 x seu(disp22))
-						wrEnRF <= '0';
-						rfSource <= "00"; 
-						rfDest <= '0'; 
-						wrEnMem <= '0'; 
+						wrEnRF <= '0'; 
+						rfSource <= "00"; -- No se permite escritura en el Register File
+						rfDest <= '0'; --No se permitira escritura en el Register File
+						wrEnMem <= '0'; --data memory
 						ALUOP <= "111111";
-					else
-						pcSource <= "11"; -- Se salta a PC + 4
-						wrEnRF <= '0';
-						rfSource <= "00"; 
-						rfDest <= '0'; 
-						wrEnMem <= '0';
-						ALUOP <= "111111";
-					end if;
-					 
-				 when "0001" => -- Branch on Equal
-					if(icc(2) = '1') then --  Z
-						pcSource <= "10"; -- Siempre se salta a PC + (4 x seu(disp22))
-						wrEnRF <= '0';
-						rfSource <= "00"; 
-						rfDest <= '0'; 
-						wrEnMem <= '0'; 
-						ALUOP <= "111111";
-					else
-						pcSource <= "11"; -- Se salta a PC + 4
-						wrEnRF <= '0';
-						rfSource <= "00";
-						rfDest <= '0'; 
-						wrEnMem <= '0'; 
-						ALUOP <= "111111";
-					end if;
+						
+					when "1001" => -- Branch on Not Equal  
+						if(not(icc(2)) = '1') then -- not Z
+							pcSource <= "10"; -- Siempre se salta a PC + (4 x seu(disp22))
+							wrEnRF <= '0';
+							rfSource <= "00"; 
+							rfDest <= '0'; 
+							wrEnMem <= '0'; 
+							ALUOP <= "111111";
+						else
+							pcSource <= "11"; -- Se salta a PC + 4
+							wrEnRF <= '0';
+							rfSource <= "00"; 
+							rfDest <= '0'; 
+							wrEnMem <= '0';
+							ALUOP <= "111111";
+						end if;
+						 
+					 when "0001" => -- Branch on Equal
+						if(icc(2) = '1') then --  Z
+							pcSource <= "10"; -- Siempre se salta a PC + (4 x seu(disp22))
+							wrEnRF <= '0';
+							rfSource <= "00"; 
+							rfDest <= '0'; 
+							wrEnMem <= '0'; 
+							ALUOP <= "111111";
+						else
+							pcSource <= "11"; -- Se salta a PC + 4
+							wrEnRF <= '0';
+							rfSource <= "00";
+							rfDest <= '0'; 
+							wrEnMem <= '0'; 
+							ALUOP <= "111111";
+						end if;
+						
+					when "1010"=> --Greather
+						if(not(icc(2) or (icc(3) or icc(1)))='1') then
+							pcSource <= "10"; -- Se salta a PC + 4
+							wrEnRF <= '0';
+							rfSource <= "00";
+							rfDest <= '0'; 
+							wrEnMem <= '0'; 
+							ALUOP <= "111111";
+						else
+							pcSource <= "11"; -- Se salta a PC + 4
+							wrEnRF <= '0';
+							rfSource <= "00";
+							rfDest <= '0'; 
+							wrEnMem <= '0'; 
+							ALUOP <= "111111";
+						end if;
+						
+					when "0010"=> --Less or equal
+						if ((icc(2) or (icc(3) xor icc(1)))='1') then 
+							pcSource <= "10"; -- Se salta a PC + 4
+							wrEnRF <= '0';
+							rfSource <= "00";
+							rfDest <= '0'; 
+							wrEnMem <= '0'; 
+							ALUOP <= "111111";
+						else
+							pcSource <= "11"; -- Se salta a PC + 4
+							wrEnRF <= '0';
+							rfSource <= "00";
+							rfDest <= '0'; 
+							wrEnMem <= '0'; 
+							ALUOP <= "111111";
+						end if;
+						
+					when "1011"=>--Greather or equal
+						if(not(icc(3) xor icc(1))='1')then
+							pcSource <= "10"; -- Se salta a PC + 4
+							wrEnRF <= '0';
+							rfSource <= "00";
+							rfDest <= '0'; 
+							wrEnMem <= '0'; 
+							ALUOP <= "111111";
+						else
+							pcSource <= "11"; -- Se salta a PC + 4
+							wrEnRF <= '0';
+							rfSource <= "00";
+							rfDest <= '0'; 
+							wrEnMem <= '0'; 
+							ALUOP <= "111111";
+						end if;
 					
-				when "1010"=> --Greather
-					if(not(icc(2) or (icc(3) or icc(1)))='1') then
-						pcSource <= "10"; -- Se salta a PC + 4
-						wrEnRF <= '0';
-						rfSource <= "00";
-						rfDest <= '0'; 
-						wrEnMem <= '0'; 
-						ALUOP <= "111111";
-					else
-						pcSource <= "11"; -- Se salta a PC + 4
-						wrEnRF <= '0';
-						rfSource <= "00";
-						rfDest <= '0'; 
-						wrEnMem <= '0'; 
-						ALUOP <= "111111";
-					end if;
+					when "0011" => --Less
+						if((icc(3) xor icc(1))='1')then
+							pcSource <= "10"; -- Se salta a PC + 4
+							wrEnRF <= '0';
+							rfSource <= "00";
+							rfDest <= '0'; 
+							wrEnMem <= '0'; 
+							ALUOP <= "111111";
+						else
+							pcSource <= "11"; -- Se salta a PC + 4
+							wrEnRF <= '0';
+							rfSource <= "00";
+							rfDest <= '0'; 
+							wrEnMem <= '0'; 
+							ALUOP <= "111111";
+						end if;
+						
+					when "1100" => --Greather unsigned
+						if(not(icc(0) or icc(2))='1')then
+							pcSource <= "10"; -- Se salta a PC + 4
+							wrEnRF <= '0';
+							rfSource <= "00";
+							rfDest <= '0'; 
+							wrEnMem <= '0'; 
+							ALUOP <= "111111";
+						else
+							pcSource <= "11"; -- Se salta a PC + 4
+							wrEnRF <= '0';
+							rfSource <= "00";
+							rfDest <= '0'; 
+							wrEnMem <= '0'; 
+							ALUOP <= "111111";
+						end if;
+						
+					when "0100" => --Less or equal unsigned 
+						if((icc(0) or icc(2))='1')then
+							pcSource <= "10"; -- Se salta a PC + 4
+							wrEnRF <= '0';
+							rfSource <= "00";
+							rfDest <= '0'; 
+							wrEnMem <= '0'; 
+							ALUOP <= "111111";
+						else
+							pcSource <= "11"; -- Se salta a PC + 4
+							wrEnRF <= '0';
+							rfSource <= "00";
+							rfDest <= '0'; 
+							wrEnMem <= '0'; 
+							ALUOP <= "111111";
+						end if;
 					
-				when "0010"=> --Less or equal
-					if ((icc(2) or (icc(3) xor icc(1)))='1') then 
-						pcSource <= "10"; -- Se salta a PC + 4
-						wrEnRF <= '0';
-						rfSource <= "00";
-						rfDest <= '0'; 
-						wrEnMem <= '0'; 
-						ALUOP <= "111111";
-					else
-						pcSource <= "11"; -- Se salta a PC + 4
-						wrEnRF <= '0';
-						rfSource <= "00";
-						rfDest <= '0'; 
-						wrEnMem <= '0'; 
-						ALUOP <= "111111";
-					end if;
+					when "1101" => --Carry clear
+						if(not(icc(0))='1')then
+							pcSource <= "10"; -- Se salta a PC + 4
+							wrEnRF <= '0';
+							rfSource <= "00";
+							rfDest <= '0'; 
+							wrEnMem <= '0'; 
+							ALUOP <= "111111";
+						else
+							pcSource <= "11"; -- Se salta a PC + 4
+							wrEnRF <= '0';
+							rfSource <= "00";
+							rfDest <= '0'; 
+							wrEnMem <= '0'; 
+							ALUOP <= "111111";
+						end if;
 					
-				when "1011"=>--Greather or equal
-					if(not(icc(3) xor icc(1))='1')then
-						pcSource <= "10"; -- Se salta a PC + 4
-						wrEnRF <= '0';
-						rfSource <= "00";
-						rfDest <= '0'; 
-						wrEnMem <= '0'; 
-						ALUOP <= "111111";
-					else
-						pcSource <= "11"; -- Se salta a PC + 4
-						wrEnRF <= '0';
-						rfSource <= "00";
-						rfDest <= '0'; 
-						wrEnMem <= '0'; 
-						ALUOP <= "111111";
-					end if;
-				
-				when "0011" => --Less
-					if((icc(3) xor icc(1))='1')then
-						pcSource <= "10"; -- Se salta a PC + 4
-						wrEnRF <= '0';
-						rfSource <= "00";
-						rfDest <= '0'; 
-						wrEnMem <= '0'; 
-						ALUOP <= "111111";
-					else
-						pcSource <= "11"; -- Se salta a PC + 4
-						wrEnRF <= '0';
-						rfSource <= "00";
-						rfDest <= '0'; 
-						wrEnMem <= '0'; 
-						ALUOP <= "111111";
-					end if;
+					when "0101" => --Carry set
+						if(icc(0)='1')then
+							pcSource <= "10"; -- Se salta a PC + 4
+							wrEnRF <= '0';
+							rfSource <= "00";
+							rfDest <= '0'; 
+							wrEnMem <= '0'; 
+							ALUOP <= "111111";
+						else
+							pcSource <= "11"; -- Se salta a PC + 4
+							wrEnRF <= '0';
+							rfSource <= "00";
+							rfDest <= '0'; 
+							wrEnMem <= '0'; 
+							ALUOP <= "111111";
+						end if;
+						
+					when "1110" => --Positive
+						if(not(icc(3))='1')then
+							pcSource <= "10"; -- Se salta a PC + 4
+							wrEnRF <= '0';
+							rfSource <= "00";
+							rfDest <= '0'; 
+							wrEnMem <= '0'; 
+							ALUOP <= "111111";
+						else
+							pcSource <= "11"; -- Se salta a PC + 4
+							wrEnRF <= '0';
+							rfSource <= "00";
+							rfDest <= '0'; 
+							wrEnMem <= '0'; 
+							ALUOP <= "111111";
+						end if;
+						
+					when "0110" => --Negative
+						if(icc(3)='1')then
+							pcSource <= "10"; -- Se salta a PC + 4
+							wrEnRF <= '0';
+							rfSource <= "00";
+							rfDest <= '0'; 
+							wrEnMem <= '0'; 
+							ALUOP <= "111111";
+						else
+							pcSource <= "11"; -- Se salta a PC + 4
+							wrEnRF <= '0';
+							rfSource <= "00";
+							rfDest <= '0'; 
+							wrEnMem <= '0'; 
+							ALUOP <= "111111";
+						end if;
+								
+					when "1111" => --Overflow clear
+						if(not(icc(1))='1')then
+							pcSource <= "10"; -- Se salta a PC + 4
+							wrEnRF <= '0';
+							rfSource <= "00";
+							rfDest <= '0'; 
+							wrEnMem <= '0'; 
+							ALUOP <= "111111";
+						else
+							pcSource <= "11"; -- Se salta a PC + 4
+							wrEnRF <= '0';
+							rfSource <= "00";
+							rfDest <= '0'; 
+							wrEnMem <= '0'; 
+							ALUOP <= "111111";
+						end if;
 					
-				when "1100" => --Greather unsigned
-					if(not(icc(0) or icc(2))='1')then
-						pcSource <= "10"; -- Se salta a PC + 4
-						wrEnRF <= '0';
-						rfSource <= "00";
-						rfDest <= '0'; 
-						wrEnMem <= '0'; 
-						ALUOP <= "111111";
-					else
-						pcSource <= "11"; -- Se salta a PC + 4
-						wrEnRF <= '0';
-						rfSource <= "00";
-						rfDest <= '0'; 
-						wrEnMem <= '0'; 
-						ALUOP <= "111111";
-					end if;
-					
-				when "0100" => --Less or equal unsigned 
-					if((icc(0) or icc(2))='1')then
-						pcSource <= "10"; -- Se salta a PC + 4
-						wrEnRF <= '0';
-						rfSource <= "00";
-						rfDest <= '0'; 
-						wrEnMem <= '0'; 
-						ALUOP <= "111111";
-					else
-						pcSource <= "11"; -- Se salta a PC + 4
-						wrEnRF <= '0';
-						rfSource <= "00";
-						rfDest <= '0'; 
-						wrEnMem <= '0'; 
-						ALUOP <= "111111";
-					end if;
-				
-				when "1101" => --Carry clear
-					if(not(icc(0))='1')then
-						pcSource <= "10"; -- Se salta a PC + 4
-						wrEnRF <= '0';
-						rfSource <= "00";
-						rfDest <= '0'; 
-						wrEnMem <= '0'; 
-						ALUOP <= "111111";
-					else
-						pcSource <= "11"; -- Se salta a PC + 4
-						wrEnRF <= '0';
-						rfSource <= "00";
-						rfDest <= '0'; 
-						wrEnMem <= '0'; 
-						ALUOP <= "111111";
-					end if;
-				
-				when "0101" => --Carry set
-					if(icc(0)='1')then
-						pcSource <= "10"; -- Se salta a PC + 4
-						wrEnRF <= '0';
-						rfSource <= "00";
-						rfDest <= '0'; 
-						wrEnMem <= '0'; 
-						ALUOP <= "111111";
-					else
-						pcSource <= "11"; -- Se salta a PC + 4
-						wrEnRF <= '0';
-						rfSource <= "00";
-						rfDest <= '0'; 
-						wrEnMem <= '0'; 
-						ALUOP <= "111111";
-					end if;
-					
-				when "1110" => --Positive
-					if(not(icc(3))='1')then
-						pcSource <= "10"; -- Se salta a PC + 4
-						wrEnRF <= '0';
-						rfSource <= "00";
-						rfDest <= '0'; 
-						wrEnMem <= '0'; 
-						ALUOP <= "111111";
-					else
-						pcSource <= "11"; -- Se salta a PC + 4
-						wrEnRF <= '0';
-						rfSource <= "00";
-						rfDest <= '0'; 
-						wrEnMem <= '0'; 
-						ALUOP <= "111111";
-					end if;
-					
-				when "0110" => --Negative
-					if(icc(3)='1')then
-						pcSource <= "10"; -- Se salta a PC + 4
-						wrEnRF <= '0';
-						rfSource <= "00";
-						rfDest <= '0'; 
-						wrEnMem <= '0'; 
-						ALUOP <= "111111";
-					else
-						pcSource <= "11"; -- Se salta a PC + 4
-						wrEnRF <= '0';
-						rfSource <= "00";
-						rfDest <= '0'; 
-						wrEnMem <= '0'; 
-						ALUOP <= "111111";
-					end if;
-							
-				when "1111" => --Overflow clear
-					if(not(icc(1))='1')then
-						pcSource <= "10"; -- Se salta a PC + 4
-						wrEnRF <= '0';
-						rfSource <= "00";
-						rfDest <= '0'; 
-						wrEnMem <= '0'; 
-						ALUOP <= "111111";
-					else
-						pcSource <= "11"; -- Se salta a PC + 4
-						wrEnRF <= '0';
-						rfSource <= "00";
-						rfDest <= '0'; 
-						wrEnMem <= '0'; 
-						ALUOP <= "111111";
-					end if;
-				
-				when "0111" => --Overflow set
-					if(icc(1)='1')then
-						pcSource <= "10"; -- Se salta a PC + 4
-						wrEnRF <= '0';
-						rfSource <= "00";
-						rfDest <= '0'; 
-						wrEnMem <= '0'; 
-						ALUOP <= "111111";
-					else
-						pcSource <= "11"; -- Se salta a PC + 4
-						wrEnRF <= '0';
-						rfSource <= "00";
-						rfDest <= '0'; 
-						wrEnMem <= '0'; 
-						ALUOP <= "111111";
-					end if;
-					
-				when others => -- Not Implemented
-						pcSource <= "00";
-						wrEnRF <= '0';
-						rfSource <= "00";
-						rfDest <= '0';
-						wrEnMem <= '0';
-						ALUOP <= "111111"; 
-				end case;
-			end if;
-		end if;			
+					when "0111" => --Overflow set
+						if(icc(1)='1')then
+							pcSource <= "10"; -- Se salta a PC + 4
+							wrEnRF <= '0';
+							rfSource <= "00";
+							rfDest <= '0'; 
+							wrEnMem <= '0'; 
+							ALUOP <= "111111";
+						else
+							pcSource <= "11"; -- Se salta a PC + 4
+							wrEnRF <= '0';
+							rfSource <= "00";
+							rfDest <= '0'; 
+							wrEnMem <= '0'; 
+							ALUOP <= "111111";
+						end if;
+						
+					when others => -- Not Implemented
+							pcSource <= "00";
+							wrEnRF <= '0';
+							rfSource <= "00";
+							rfDest <= '0';
+							wrEnMem <= '0';
+							ALUOP <= "111111"; 
+					end case;
+				end if;
+		end if;	
+end if;		
 ---------------------------------------------------------------------------------------------------
 if(OP = "11") then --Load and Store
 		if(OP3="000000") then --Load
